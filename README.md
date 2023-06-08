@@ -1,4 +1,4 @@
-# Name here
+# Synapso
 
 A social media project
 
