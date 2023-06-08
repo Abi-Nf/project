@@ -1,3 +1,5 @@
-# Eto zany le projet e
+# Name here
+
+A social media project
 
 ## Projet express
