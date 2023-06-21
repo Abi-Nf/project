@@ -8,7 +8,7 @@ let db = new sqlite3.Database(dbName, err=>{
     console.log(`Database ${dbName} is ready to be use`);
 });
 
-
+main();
 
 db.close(err=>{
     if (err)
@@ -18,6 +18,13 @@ db.close(err=>{
 
 function main(){
     switch (process.argv.slice(2)[1]) {
+        case "help":
+        case "man":
+        case "?":
+        case "":
+            console.log("node initSqliteDb.js [dbname] ['init']");
+            break;
+
         case "init":
             init();
             break;
