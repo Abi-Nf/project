@@ -1,16 +1,21 @@
-import reportWebVitals from './utils/reportWebVitals';
+import reportWebVitals from './reportWebVitals'; // dev usage only
 import ReactDOM from 'react-dom/client';
-import React, {StrictMode} from 'react';
-import Synapso from './Synapso';
+import { StrictMode } from 'react';
+import Synapso from './synapso';
+import {UserProvider} from "./components/UserProvider";
 
-
-const root = ReactDOM.createRoot(document.getElementById('synapso'));
+const root = ReactDOM
+    .createRoot(
+        document
+            .getElementById("synapso")
+    );
 
 root.render(
-  <StrictMode>
-    <Synapso />
-  </StrictMode>
+    <StrictMode>
+        <UserProvider>
+            <Synapso />
+        </UserProvider>
+    </StrictMode>
 );
 
-// In order to show the performance of client side project during the development only
-reportWebVitals(console.log);
+reportWebVitals(console.log); // dev performance App

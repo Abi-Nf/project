@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    
+    <rect width="512" height="512" rx="100" fill="url(#background)"/>
+
+    <g transform="scale(5) translate(0 2)">
+        <g stroke="#7FCDCD" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m73 15 l-18 26 19 13" />
+            <path d="m25 50 l21 15 -14 19" />
+        </g>
+    </g>
+
+    <path fill="white"
+          d="m133 236 l132 -190 a20 -25 35 0 1 54 54 l -85 120"/>
+
+    <path fill="#7FCDCD" d="m 0133 236 l 104 -18 132 90 -105 22" />
+
+    <path fill="white" 
+          d="m 370 308l -115 165 a-40 40 0 0 1 -60 -44 l 70 -100" />
+
+    <defs>
+        <linearGradient
+                id="background"
+                gradientTransform="translate(-0.6) rotate(-45)">
+
+            <stop offset="0%" stop-color="#3F69AA" />
+            <stop offset="100%" stop-color=" #b00149" />
+        </linearGradient>
+    </defs>
+</svg>
