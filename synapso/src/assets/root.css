@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --font-lato : 'Lato', Arial, Helvetica, sans-serif;
+    --font-montserrat : 'Montserrat' , Arial , Helvetica , sans-serif;
+    --font-poppins : 'Poppins' , Arial , Helvetica , sans-serif;
+    --font-quicksand : 'Quicksand', Arial , Helvetica , sans-serif;
+    --font-roboto : 'Roboto' , Arial , Helvetica , sans-serif;
+
+
+    --shadow : 0 0 .15em rgba(0,0,0,0.3);
+
+    /* whites */
+    --color-white : #fff;
+    --color-white-smokes : #dddddd;
+    --color-sand-dollar : #DFCFBE;
+    --color-paloma : #9F9C99;
+    --color-sweet-corn : #F0EAD6;
+    --color-tofu : #EAE6DA;
+    --color-almost-mauve : #EADEDB;
+    --color-harbor-mist : #B4B7BA;
+    --color-coconut-milk : #F0EDE5;
+    --color-egg : #fffcc4;
+
+    /* greys */
+    --color-quiet-gray : #BCBCBE;
+
+    /* reds */
+    --color-tangerine-tango : #DD4124;
+    --color-chili-pepper-red : #9B2335;
+    --color-tigerlily : #E15D44;
+    --color-true-red : #BC243C;
+    --color-biking-red : #41171e;
+    --color-jester-red : #9E1030;
+    --color-red-pear : #7F4145;
+    --color-valliant-poppy : #BD3D3A;
+    --color-cherry-tomato : #E94B3C;
+    --color-red-wine : #80013f;
+    --color-tomato : #ec2d01;
+    --color-cherry : #cf0234;
+
+    /* oranges */
+    --color-mango : #ffa62b;
+    --color-orange : #f97306;
+    --color-chili-pepper-orange : #E08119;
+    --color-dark-sheddar : #E08119;
+    --color-orange-tiger : #F96714;
+    --color-turmenic : #FE840E;
+    --color-mango-mojito : #D69C2F;
+    --color-russet-orange : #E47A2E;
+
+    /* pinks */
+    --color-mushroom : #ba9e88;
+    --color-living-coral : #FF6F61;
+    --color-rose-quartz : #F7CAC9;
+    --color-honey-sucle : #D65076;
+    --color-fushia-rose : #C3447A;
+    --color-peach-cream : #F5D6C6;
+    --color-peach-pink : #FA9A85;
+    --color-dove-fruit : #CE5B78;
+    --color-valilla-custard : #F3E0BE;
+    --color-fiesta : #DD4132;
+    --color-pink-peacock : #C62168;
+    --color-sweat-lilac : #E8B5CE;
+    --color-blooming-dhalia : #EC9787;
+    --color-pink-emperador : #6C4F3D;
+    --color-strawberry : #fb2943;
+    --color-peach : #ffb07c;
+    --color-cranberry : #9e003a;
+
+    /* violets */
+    --color-aubergine : #3d0734;
+    --color-ultra-violet : #6B5B95;
+    --color-radiand-orchid : #B565A7;
+    --color-eclipse : #343148;
+    --crocus-petal : #BE9EC9;
+    --color-spring-crocus : #BC70A4;
+    --color-salmon : #ff796c;
+    --color-raspberry : #b00149;
+    --color-grape : #6c3461;
+
+    /* greens */
+    --color-green-apple : #76cd26;
+    --color-aspargus : #77ab56;
+    --color-avocado : #87a922;
+    --color-kiwi : #8ee53f;
+    --color-lime : #bffe28;
+    --color-mint : #c0fa8b;
+    --color-olive : #6e750e;
+    --color-pea : #a4bf20;
+    --color-pear : #cbf85f;
+    --color-pistachio : #c0fa8b;
+    --color-spearmint : #1ef876;
+    --color-greenery : #88B04B;
+    --color-emerald : #009B77;
+    --color-turquoise : #45B8AC;
+    --color-eden : #264E36;
+    --color-guaccamole : #797B3A;
+    --color-pepper-stem : #8D9440;
+    --color-terranium-moss : #616247;
+    --color-quetzal-green : #006E6D;
+    --color-lime-punch : #BFD641;
+
+    /* blues */
+    --color-blueberry : #464196;
+    --color-cerulean-blue : #98B4D4;
+    --color-serenity : #92A8D1;
+    --color-meerkat : #95dee3;
+    --color-aqua-sky : #7FCDCD;
+    --color-blue-turquoise : #55B4B0;
+    --color-arcadia : #00A591;
+    --color-little-boy-blue : #6F9FD8;
+    --color-princess-blue : #00539C;
+    --color-nebulas-blue : #3F69AA;
+    --color-galaxy-blue : #2A4B7C;
+    --color-blue-izis : #5B5EA6;
+    --color-bluestone : #577284;
+    --color-sailor-blue : #2E4A62;
+    --color-sargasso-sea : #485167;
+    --color-evening-blue : #2A293E;
+
+    /* yellows */
+    --color-abricot : #ffb16d;
+    --color-banana : #fafe4b;
+    --color-butter : #ffff81;
+    --color-lemon : #fdff52;
+    --color-mustard : #ceb301;
+    --color-saffron : #feb209;
+    --color-mimosa : #EFC050;
+    --color-aspen-gold : #FFD662;
+    --color-ceylon-yellow : #D5AE41;
+    --color-limelight : #F1EA7F;
+    --color-meadowlark : #ECDB54;
+    --color-wheat : #fbdd7e;
+    --color-squash : #f2ab15;
+
+    /* browns */
+    --color-chocolat : #411900;
+    --color-coffee : #a6814c;
+    --color-marsala : #955251;
+    --color-rocky-road : #5A3E36;
+    --color-sugar-almond : #935529;
+    --color-toffee : #755139;
+    --color-brown-granite : #615550;
+    --color-soybean : #D2C29D;
+    --color-martini-olive : #766F57;
+    --color-alomond-buff : #D1B894;
+    --color-chili-oil : #944743;
+    --color-warm-sand : #C0AB8E;
+
+    /* dark */
+    --color-camo-black : #373538;
+    --color-camo-grey : #9495a5;
+    --color-camo-dark-grey : #5c5c5b;
+    --color-camo-green : #4a5444;
+    --color-camo-light-green : #63613e;
+    --color-camo-forest : #54504b;
+    --color-dark-green : #535640;
+    --color-camo-sandstone : #bcab90;
+    --color-camo-tan : #b49d80;
+    --color-camo-sand : #a9947b;
+    --color-camo-earth : #ac7e54;
+    --color-camo-field : #745d46;
+    --color-camo-olive : #595142;
+    --color-camo-red : #79533d;
+    --color-camo-brown : #594d45;
+    --color-black : #000;
+}
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    color: inherit;
+    cursor: inherit;
+    list-style: none;
+    position: relative;
+    font-size: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+.theme-dark{
+    --theme-l : #000;
+    --theme-l1 : #0d0d0d;
+    --theme-l2 : #1a1a1a;
+    --theme-l3 : #262626;
+    --theme-l4 : #333333;
+    --theme-l5 : #404040;
+    --theme-l6 : #4d4d4d;
+    --theme-l7 : #595959;
+    --theme-l8 :  #666666;
+    --theme-l9 : #737373;
+    --theme-l10 : #808080;
+    --theme-invert : #fff;
+}
+.page-login,
+.page-signup,
+.theme-light{
+    --theme-l : #ffffff;
+    --theme-l1 : #f2f2f2;
+    --theme-l2 : #e6e6e6;
+    --theme-l3 : #d9d9d9;
+    --theme-l4 : #cccccc;
+    --theme-l5 : #bfbfbf;
+    --theme-l6 : #b3b3b3;
+    --theme-l7 : #a6a6a6;
+    --theme-l8 :  #999999;
+    --theme-l9 : #8c8c8c;
+    --theme-l10 : #808080;
+    --theme-invert : #000;
+
+}
+.quicksand{
+    font-family: var(--font-quicksand);
+}
+.lato{
+    font-family: var(--font-lato);
+}
+.montserrat{
+    font-family: var(--font-montserrat);
+}
+.roboto{
+    font-family: var(--font-roboto);
+}
+.poppins{
+    font-family: var(--font-poppins);
+}
+.online-state{
+    right: 0;
+    bottom: 0;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    position: absolute;
+    border-radius: 50%;
+    border: .2em solid var(--theme-l);
+    background: var(--color-green-apple);
+}
