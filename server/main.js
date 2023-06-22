@@ -2,9 +2,12 @@ const socket = require("socket.io")
 const express = require("express");
 const app = express();
 const {pool} = require('./query.js');
+const port = 4000;
 
 const url_front = "";
-const server = app.listen(4000,function (){});
+const server = app.listen(port,()=>{
+    console.log(`Listen on the port ${port}`);
+});
 
 const io = socket(server,{
     cors : {

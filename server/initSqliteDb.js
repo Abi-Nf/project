@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3');
 
-const dbName = `${process.argv.slice(2)[0]}.db`
+const dbName = `${process.argv.slice(2)[0]}.sqlite`
 
 let db = new sqlite3.Database(dbName, err=>{
     if (err)
