@@ -2,4 +2,9 @@
 
 A social media project
 
-## Projet express
+## Express
+
+| Method\request | /login                                                       | /signup                                                                                     |
+|----------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| post           | request : {username,password} ; response : {uuid}            | request : {firstname,lastname,birthdate,gender,email or phone,password} ; response : {uuid} |
+| get            | request : {uuid} ; response : {profile_img,firstname,uuid}   |                                                                                             |
