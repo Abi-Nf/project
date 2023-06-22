@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3');
 
-const dbName = "dataBase.db"
+const dbName = "dataBase.sqlite"
 
 let db = new sqlite3.Database(dbName, err=>{
     if (err)
@@ -23,7 +23,7 @@ db.run(`INSERT INTO user(
         throw err
 })
 
-db.get("SELECT  * FROM user where id=2;", (err, result)=>{
+db.get("SELECT  * FROM user where id=3;", (err, result)=>{
     if (err)
         throw err
     console.log(result)

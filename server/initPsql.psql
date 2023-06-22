@@ -1,0 +1,71 @@
+------------------------------------------------------------
+--        Script Postgre 
+------------------------------------------------------------
+
+
+
+------------------------------------------------------------
+-- Table: user
+------------------------------------------------------------
+CREATE TABLE public.user(
+	id           SERIAL NOT NULL ,
+	first_name   VARCHAR (50) NOT NULL ,
+	last_name    VARCHAR (50) NOT NULL ,
+	pseudo       VARCHAR (50)  ,
+	birth_date   DATE  NOT NULL  ,
+	CONSTRAINT user_PK PRIMARY KEY (id)
+)WITHOUT OIDS;
+
+
+------------------------------------------------------------
+-- Table: discution
+------------------------------------------------------------
+CREATE TABLE public.discution(
+	id      SERIAL NOT NULL ,
+	titre   VARCHAR (50) NOT NULL  ,
+	CONSTRAINT discution_PK PRIMARY KEY (id)
+)WITHOUT OIDS;
+
+
+------------------------------------------------------------
+-- Table: message
+------------------------------------------------------------
+CREATE TABLE public.message(
+	id              SERIAL NOT NULL ,
+	texte           VARCHAR (50) NOT NULL ,
+	creation_date   TIMESTAMP  NOT NULL ,
+	id_discution    INT  NOT NULL  ,
+	CONSTRAINT message_PK PRIMARY KEY (id)
+
+	,CONSTRAINT message_discution_FK FOREIGN KEY (id_discution) REFERENCES public.discution(id)
+)WITHOUT OIDS;
+
+
+------------------------------------------------------------
+-- Table: be_friends
+------------------------------------------------------------
+CREATE TABLE public.be_friends(
+	id              INT  NOT NULL ,
+	id_user         INT  NOT NULL ,
+	date_de_debut   DATE  NOT NULL  default current_date,
+	CONSTRAINT be_friends_PK PRIMARY KEY (id,id_user)
+
+	,CONSTRAINT be_friends_user_FK FOREIGN KEY (id) REFERENCES public.user(id)
+	,CONSTRAINT be_friends_user0_FK FOREIGN KEY (id_user) REFERENCES public.user(id)
+)WITHOUT OIDS;
+
+
+------------------------------------------------------------
+-- Table: have_discution
+------------------------------------------------------------
+CREATE TABLE public.have_discution(
+	id             INT  NOT NULL ,
+	id_discution   INT  NOT NULL  ,
+	CONSTRAINT have_discution_PK PRIMARY KEY (id,id_discution)
+
+	,CONSTRAINT have_discution_user_FK FOREIGN KEY (id) REFERENCES public.user(id)
+	,CONSTRAINT have_discution_discution0_FK FOREIGN KEY (id_discution) REFERENCES public.discution(id)
+)WITHOUT OIDS;
+
+
+
