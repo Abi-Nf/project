@@ -9,6 +9,12 @@ const server = app.listen(port,()=>{
     console.log(`Listen on the port ${port}`);
 });
 
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
 const io = socket(server,{
     cors : {
         origin : url_front,
