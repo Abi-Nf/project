@@ -64,7 +64,7 @@ const allPsql = {
 const pool = new Pool({
     user : 'postgres',
     host: 'localhost',
-    database: 'db',
+    database: process.argv.slice(2)[2],
     password: process.argv.slice(2)[0],
     port: process.argv.slice(2)[1],
 });
@@ -80,7 +80,7 @@ const sendRow = (result, response) => {
 };
 
 function getOneUser(request, response){
-    const { uuid } = request.body;
+    const uuid = parseInt(request.params.uuid) | 1;
     pool.query(
         allPsql["oneUser"](uuid),
         (err, result)=>errAndResult(
