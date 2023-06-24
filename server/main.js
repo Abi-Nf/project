@@ -1,5 +1,6 @@
 const socket = require("socket.io")
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const db = require('./query.js');
 const port = 4000;
@@ -9,6 +10,7 @@ const server = app.listen(port,()=>{
     console.log(`Listen on the port ${port}`);
 });
 
+app.use(express.json())
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({

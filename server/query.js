@@ -80,7 +80,6 @@ const sendRow = (result, response) => {
 };
 
 function getOneUser(request, response){
-    console.log(request.body);
     const { uuid } = request.body;
     pool.query(
         allPsql["oneUser"](uuid),
