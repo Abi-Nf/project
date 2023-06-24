@@ -1,7 +1,7 @@
 import reportWebVitals from './reportWebVitals'; // dev usage only
 import ReactDOM from 'react-dom/client';
 import { StrictMode } from 'react';
-import Synapso from './synapso';
+import Synapso from './Synapso';
 import {UserProvider} from "./components/UserProvider";
 
 const root = ReactDOM

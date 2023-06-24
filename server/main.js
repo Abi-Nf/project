@@ -1,7 +1,7 @@
 const socket = require("socket.io")
 const express = require("express");
 const app = express();
-const {pool} = require('./query.js');
+const db = require('./query.js');
 const port = 4000;
 
 const url_front = "";
@@ -22,3 +22,5 @@ io.on("connect",function(socket){
 
     socket.emit("receive-notification","");
 })
+
+app.get('/login', db.getOneUser)

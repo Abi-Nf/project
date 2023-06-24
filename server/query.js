@@ -32,6 +32,33 @@ const allPsql = {
         ON "user".id = friends.id_friend
         ORDER BY date_de_debut ASC;
     `,
+
+    "validLogin" : ({username,password})=>{
+        let first_name = username.split(' ').slice(1, username.split(' ').length)
+        let last_name = username.split(' ')[0];
+        return`
+                INSERT INTO "user"(
+                    first_name,
+                    last_name,
+                    pseudo,
+                    birth_date,
+                    password
+                ) VALUES (
+                    '${first_name}',
+                    '${last_name}',
+                    '',
+                    current_date,
+                    '${password}'
+                )
+                RETURNING id;
+    `},
+
+    "validSignUp" : ({firstname,lastname,birthdate,gender,email, phone,password})=>``,
+
+    "oneUser" : ({uuid})=>`
+                SELECT id,first_name FROM "user"
+                WHERE id=${uuid}; 
+    `,
 };
 
 const pool = new Pool({
@@ -42,9 +69,29 @@ const pool = new Pool({
     port: process.argv.slice(2)[1],
 });
 
-console.log(allPsql["allMessageOf"]({
-    idUser1 : 1,
-    idUser2 : 2,
-}));
+const errAndResult = (err, result, next) => {
+    if (err)
+        throw err
+    next()
+};
 
-module.exports = {pool};
+const sendRow = (result, response) => {
+    response.status(200).json(result.rows);
+};
+
+function getOneUser(request, response){
+    console.log(request.body);
+    const { uuid } = request.body;
+    pool.query(
+        allPsql["oneUser"](uuid),
+        (err, result)=>errAndResult(
+            err,
+            result,
+            (result, response)=>sendRow(result, response)
+        )
+    )
+};
+
+module.exports = {
+    getOneUser,
+};
