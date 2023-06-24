@@ -71,5 +71,6 @@ CREATE TABLE public.have_discution(
 	,CONSTRAINT have_discution_discution0_FK FOREIGN KEY (id_discution) REFERENCES public.discution(id)
 )WITHOUT OIDS;
 
-
+INSERT INTO "user" (first_name, last_name, birth_date, password)
+VALUES ('axel', 'rakoto' ,current_date, 'password');
 

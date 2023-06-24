@@ -69,24 +69,25 @@ const pool = new Pool({
     port: process.argv.slice(2)[1],
 });
 
-const errAndResult = (err, result, next) => {
+const errAndResult = (err, result, next, param={}) => {
     if (err)
         throw err
-    next()
+    next({...param, result})
 };
 
-const sendRow = (result, response) => {
+const sendRow = ({result, response}) => {
     response.status(200).json(result.rows);
 };
 
 function getOneUser(request, response){
-    const uuid = parseInt(request.params.uuid) | 1;
+    const uuid = parseInt(request.params.uuid);
     pool.query(
-        allPsql["oneUser"](uuid),
+        allPsql["oneUser"]({uuid}),
         (err, result)=>errAndResult(
             err,
             result,
-            (result, response)=>sendRow(result, response)
+            sendRow,
+            {response}
         )
     )
 };

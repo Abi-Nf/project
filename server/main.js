@@ -32,4 +32,3 @@ io.on("connect",function(socket){
 })
 
 app.get('/login/:uuid', db.getOneUser)
-app.get('/login', db.getOneUser)
