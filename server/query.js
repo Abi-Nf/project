@@ -59,6 +59,13 @@ const allPsql = {
                 SELECT id,first_name FROM "user"
                 WHERE id=${uuid}; 
     `,
+
+    "addUser" : ({firstname,lastname,birthdate,password})=>`
+                INSERT INTO "user" 
+                (firstname,lastname,birthdate,password)
+                VALUES
+                (${firstname},${lastname},${birthdate},${password});
+    `,
 };
 
 const pool = new Pool({
@@ -78,6 +85,9 @@ const errAndResult = (err, result, next, param={}) => {
 const sendRow = ({result, response}) => {
     response.status(200).json(result.rows);
 };
+const logNewUser = ({}) => {
+    console.log("Add a new user");
+};
 
 function getOneUser(request, response){
     const uuid = parseInt(request.params.uuid);
@@ -92,6 +102,18 @@ function getOneUser(request, response){
     )
 };
 
+function createAccount(request, response){
+    pool.query(
+        allPsql["addUser"](request.body),
+        (err, result)=>errAndResult(
+            err,
+            result,
+            logNewUser
+        )
+    )
+};
+
 module.exports = {
     getOneUser,
+    createAccount,
 };
