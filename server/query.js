@@ -61,10 +61,10 @@ const allPsql = {
     `,
 
     "addUser" : ({firstname,lastname,birthdate,password})=>`
-                INSERT INTO "user" 
-                (firstname,lastname,birthdate,password)
-                VALUES
-                (${firstname},${lastname},${birthdate},${password});
+        INSERT INTO "user" 
+        (first_name,last_name,birth_date,password)
+        VALUES
+        ('${firstname}','${lastname}','${birthdate}','${password}');
     `,
 };
 

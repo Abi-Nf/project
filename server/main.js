@@ -1,6 +1,8 @@
 const socket = require("socket.io")
 const express = require("express");
 const bodyParser = require("body-parser");
+const corse = require("cors");
+const path = require("path")
 const app = express();
 const db = require('./query.js');
 const port = 4000;
@@ -11,12 +13,7 @@ const server = app.listen(port,()=>{
 });
 
 app.use(express.json())
-app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+
 const io = socket(server,{
     cors : {
         origin : url_front,
@@ -32,4 +29,10 @@ io.on("connect",function(socket){
 })
 
 app.get('/login/:uuid', db.getOneUser)
-app.get('/signup', db.createAccount)
+app.post('/signup', db.createAccount)
+app.get('/', (request, response)=>{
+  response.sendFile("client.html", {root: path.join(__dirname)})
+})
+app.get('/client.js', (request, response)=>{
+  response.sendFile("client.js", {root: path.join(__dirname)})
+})
