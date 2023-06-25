@@ -13,6 +13,13 @@ const server = app.listen(port,()=>{
 });
 
 app.use(express.json())
+/**app.use(cors()) *//**a configurer */
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*"); // Vous pouvez remplacer "*" par un domaine spécifique pour limiter l'accès
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE"); // Méthodes HTTP autorisées
+  res.header("Access-Control-Allow-Headers", "Content-Type"); // Headers autorisés
+  next();
+});
 
 const io = socket(server,{
     cors : {
