@@ -30,6 +30,7 @@ io.on("connect",function(socket){
 
 app.get('/login/:uuid', db.getOneUser)
 app.post('/signup', db.createAccount)
+
 app.get('/', (request, response)=>{
   response.sendFile("client.html", {root: path.join(__dirname)})
 })

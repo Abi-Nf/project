@@ -60,11 +60,11 @@ const allPsql = {
                 WHERE id=${uuid}; 
     `,
 
-    "addUser" : ({firstname,lastname,birthdate,password})=>`
+    "addUser" : ({firstname,lastname,birthdate,password, username})=>`
         INSERT INTO "user" 
-        (first_name,last_name,birth_date,password)
+        (first_name,last_name,birth_date,password ,user_name)
         VALUES
-        ('${firstname}','${lastname}','${birthdate}','${password}');
+        ('${firstname}','${lastname}','${birthdate}','${password}', '${username}');
     `,
 };
 
@@ -85,8 +85,9 @@ const errAndResult = (err, result, next, param={}) => {
 const sendRow = ({result, response}) => {
     response.status(200).json(result.rows);
 };
-const logNewUser = ({}) => {
+const logNewUser = ({response}) => {
     console.log("Add a new user");
+    sendRow({result, response})
 };
 
 function getOneUser(request, response){
@@ -108,7 +109,8 @@ function createAccount(request, response){
         (err, result)=>errAndResult(
             err,
             result,
-            logNewUser
+            logNewUser,
+            {response}
         )
     )
 };
