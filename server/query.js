@@ -34,6 +34,7 @@ const allPsql = {
     `,
 
     "validLogin" : ({username,password})=>{
+        // pourquoi splitter ici ?
         let first_name = username.split(' ').slice(1, username.split(' ').length)
         let last_name = username.split(' ')[0];
         return`
