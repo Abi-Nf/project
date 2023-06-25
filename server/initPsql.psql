@@ -72,6 +72,17 @@ CREATE TABLE public.have_discution(
 	,CONSTRAINT have_discution_discution0_FK FOREIGN KEY (id_discution) REFERENCES public.discution(id)
 )WITHOUT OIDS;
 
-INSERT INTO "user" (first_name, last_name, birth_date, password)
-VALUES ('axel', 'rakoto' ,current_date, 'password');
+CREATE TABLE image(
+	id SERIAL PRIMARY KEY,
+  originalname text not NULL,
+  encoding text not NULL,
+  mimetype text not NULL,
+  destination text not NULL,
+  filename text not NULL,
+  path text not NULL,
+  size text not NULL
+);
+
+INSERT INTO "user" (first_name, last_name, user_name, birth_date, password)
+VALUES ('axel', 'rakoto', 'koto' ,current_date, 'password');
 

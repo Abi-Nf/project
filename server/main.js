@@ -2,10 +2,13 @@ const socket = require("socket.io")
 const express = require("express");
 const bodyParser = require("body-parser");
 const corse = require("cors");
-const path = require("path")
-const app = express();
+const path = require("path");
+const multer = require("multer");
 const db = require('./query.js');
 const port = 4000;
+
+const app = express();
+const upload = multer({ dest: '../storage/img/' });
 
 const url_front = "";
 const server = app.listen(port,()=>{
@@ -37,10 +40,12 @@ io.on("connect",function(socket){
 
 app.get('/login/:uuid', db.getOneUser)
 app.post('/signup', db.createAccount)
-
+app.post('/img', upload.single('pdp'), db.addImage)
+/**
 app.get('/', (request, response)=>{
   response.sendFile("client.html", {root: path.join(__dirname)})
 })
 app.get('/client.js', (request, response)=>{
   response.sendFile("client.js", {root: path.join(__dirname)})
 })
+ */

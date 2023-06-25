@@ -18,8 +18,12 @@
         if (err)
             throw err
     }) */
-fetch('/login/1')
-.then(v=> console.log(v.json()))
+fetch('http://localhost:4000/login/1')
+.then(v=> v.json())
+.then(v=>{
+    for (const colomn in v[0])
+        document.getElementById("toFill").innerHTML += `<h2>${colomn} : </h2><p>${v[0][colomn]}</p>`;
+})
 .catch(err=>{
     if (err)
         throw err

@@ -66,6 +66,13 @@ const allPsql = {
         VALUES
         ('${firstname}','${lastname}','${birthdate}','${password}', '${username}');
     `,
+
+    'addImg' : ({originalname, encoding ,mimetype, filename, path, size, destination})=>`
+                    INSERT INTO image
+                    (originalname, encoding ,mimetype, filename, path, size, destination)
+                    VALUES
+                    ('${originalname}', '${encoding}' ,'${mimetype}', '${filename}', '${path}', '${String(size)}', '${destination}');
+    `,
 };
 
 const pool = new Pool({
@@ -89,6 +96,9 @@ const logNewUser = ({response}) => {
     console.log("Add a new user");
     sendRow({result, response})
 };
+const newImg = () => {
+    console.log("Add a new image");
+};
 
 function getOneUser(request, response){
     const uuid = parseInt(request.params.uuid);
@@ -101,6 +111,17 @@ function getOneUser(request, response){
             {response}
         )
     )
+};
+
+function addImage(request, response){
+    pool.query(
+        allPsql["addImg"](request.file),
+        (err, result)=>errAndResult(
+            err, result,
+            newImg
+        )
+    )
+    response.status(200).json({send : true});
 };
 
 function createAccount(request, response){
@@ -118,4 +139,5 @@ function createAccount(request, response){
 module.exports = {
     getOneUser,
     createAccount,
+    addImage,
 };
