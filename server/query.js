@@ -60,38 +60,63 @@ const allPsql = {
                 SELECT id,first_name FROM "user"
                 WHERE id=${uuid}; 
     `,
+
+    "addUser" : ({firstname,lastname,birthdate,password, username})=>`
+        INSERT INTO "user" 
+        (first_name,last_name,birth_date,password ,user_name)
+        VALUES
+        ('${firstname}','${lastname}','${birthdate}','${password}', '${username}');
+    `,
 };
 
 const pool = new Pool({
     user : 'postgres',
     host: 'localhost',
-    database: 'db',
+    database: process.argv.slice(2)[2],
     password: process.argv.slice(2)[0],
     port: process.argv.slice(2)[1],
 });
 
-const errAndResult = (err, result, next) => {
+const errAndResult = (err, result, next, param={}) => {
     if (err)
         throw err
-    next()
+    next({...param, result})
 };
 
-const sendRow = (result, response) => {
+const sendRow = ({result, response}) => {
     response.status(200).json(result.rows);
+};
+const logNewUser = ({response}) => {
+    console.log("Add a new user");
+    sendRow({result, response})
 };
 
 function getOneUser(request, response){
-    const { uuid } = request.body;
+    const uuid = parseInt(request.params.uuid);
     pool.query(
-        allPsql["oneUser"](uuid),
+        allPsql["oneUser"]({uuid}),
         (err, result)=>errAndResult(
             err,
             result,
-            (result, response)=>sendRow(result, response)
+            sendRow,
+            {response}
+        )
+    )
+};
+
+function createAccount(request, response){
+    pool.query(
+        allPsql["addUser"](request.body),
+        (err, result)=>errAndResult(
+            err,
+            result,
+            logNewUser,
+            {response}
         )
     )
 };
 
 module.exports = {
     getOneUser,
+    createAccount,
 };
