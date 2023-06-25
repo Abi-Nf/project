@@ -1,13 +1,13 @@
 fetch(
-    "http://127.0.0.1:4000/signup",
+    "http://localhost:4000/signup",
     {
         method : "POST",
-        mode : 'no-cors',
-        body : {
+        body : JSON.stringify({
             firstname : "test",
             lastname : "test",
             birthdate : "2006-01-01",
-            password : "testp"},
+            password : "testp"
+        }),
         headers : {
             'Content-type' : 'application/json; charset=UTF-8',
         },
