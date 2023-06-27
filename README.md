@@ -22,5 +22,5 @@ A social media project
 | Method\ | Request http | Response | Plus | request.body |
 |--|--|--|--|--|
 | post           | /login            | {uuid} |  | {username,password} |
-| post           | /signup | {uuid} |  | {firstname,lastname,birthdate,gender,email or phone,password} |
+| post           | /signup | {uuid} |  | {firstname,lastname,birthdate,gender,email, phone,password} |
 | get            | /login/:uuid | {profile_img,firstname,uuid} |

@@ -33,11 +33,7 @@ const allPsql = {
         ORDER BY date_de_debut ASC;
     `,
 
-    "validLogin" : ({username,password})=>{
-        // pourquoi splitter ici ?
-        let first_name = username.split(' ').slice(1, username.split(' ').length)
-        let last_name = username.split(' ')[0];
-        return`
+    "validLogin" : ({username,password})=>`
                 INSERT INTO "user"(
                     first_name,
                     last_name,
@@ -52,9 +48,30 @@ const allPsql = {
                     '${password}'
                 )
                 RETURNING id;
-    `},
+    `,
 
-    "validSignUp" : ({firstname,lastname,birthdate,gender,email, phone,password})=>``,
+    "validSignUp" : ({firstname,lastname,birthdate,gender,email, phone,password})=>`
+    INSERT INTO "user"(
+        first_name,
+        last_name,
+        pseudo,
+        birth_date,
+        gender,
+        email,
+        phone,
+        password
+    ) VALUES (
+        '${firstname}',
+        '${lastname}',
+        '${pseudo}'
+        '${birthdate}',
+        '${gender}',
+        '${email}',
+        '${phone}',
+        '${password}'
+    )
+    RETURNING id;
+`,
 
     "oneUser" : ({uuid})=>`
                 SELECT id,first_name FROM "user"
@@ -116,7 +133,7 @@ function getOneUser(request, response){
 
 function addImage(request, response){
     pool.query(
-        allPsql["addImg"](request.file),
+        allPsql["validSignUp"](request.file),
         (err, result)=>errAndResult(
             err, result,
             newImg
