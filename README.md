@@ -19,8 +19,8 @@ A social media project
 
 ### version 1.1
 
-| Method\ | Request http | Response | Plus | request.body |
-|--|--|--|--|--|
+| Method\ | Request http | Response | Plus | request.body | Done |
+|--|--|--|--|--|--|
 | post           | /login            | {uuid} |  | {username,password} |
-| post           | /signup | {uuid} |  | {firstname,lastname,birthdate,gender,email, phone,password} |
-| get            | /login/:uuid | {profile_img,firstname,uuid} |
+| post           | /signup | {uuid} |  | {firstname,lastname,birthdate,gender,email, phone,password} | Ok |
+| get            | /login/:uuid | {profile_img,firstname,uuid} |  |  | Ok |
