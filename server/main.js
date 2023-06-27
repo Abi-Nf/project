@@ -1,27 +1,24 @@
 const socket = require("socket.io")
+const cors = require("cors");
 const express = require("express");
-const bodyParser = require("body-parser");
-const corse = require("cors");
 const path = require("path");
 const multer = require("multer");
+const path = require("path")
 const db = require('./query.js');
 const port = 4000;
+
 
 const app = express();
 const upload = multer({ dest: '../storage/img/' });
 
+
+app.use(express.json());
+app.use(cors());
+
+
 const url_front = "";
 const server = app.listen(port,()=>{
     console.log(`Listen on the port ${port}`);
-});
-
-app.use(express.json())
-/**app.use(cors()) *//**a configurer */
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Vous pouvez remplacer "*" par un domaine spécifique pour limiter l'accès
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE"); // Méthodes HTTP autorisées
-  res.header("Access-Control-Allow-Headers", "Content-Type"); // Headers autorisés
-  next();
 });
 
 const io = socket(server,{
@@ -32,9 +29,9 @@ const io = socket(server,{
 });
 
 io.on("connect",function(socket){
-    socket.on("send-message",()=>{})
-    socket.emit("receive-message","coucou")
-
+    socket.on("send-message",function({from,to,content_text}){
+        socket.emit("receive-message",content_text);
+    });
     socket.emit("receive-notification","");
 })
 
