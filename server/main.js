@@ -32,7 +32,7 @@ const io = socket(server,{
 });
 
 io.on("connect",function(socket){
-    socket.on("send-message",function(){})
+    socket.on("send-message",()=>{})
     socket.emit("receive-message","coucou")
 
     socket.emit("receive-notification","");
@@ -41,11 +41,3 @@ io.on("connect",function(socket){
 app.get('/login/:uuid', db.getOneUser)
 app.post('/signup', db.createAccount)
 app.post('/img', upload.single('pdp'), db.addImage)
-/**
-app.get('/', (request, response)=>{
-  response.sendFile("client.html", {root: path.join(__dirname)})
-})
-app.get('/client.js', (request, response)=>{
-  response.sendFile("client.js", {root: path.join(__dirname)})
-})
- */

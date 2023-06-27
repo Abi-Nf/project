@@ -24,7 +24,3 @@ A social media project
 | post           | /login            | {uuid} |  | {username,password} |
 | post           | /signup | {uuid} |  | {firstname,lastname,birthdate,gender,email or phone,password} |
 | get            | /login/:uuid | {profile_img,firstname,uuid} |
-
-## To fix
-
-- CORSE error : when page is not localhost
