@@ -28,3 +28,13 @@ fetch('http://localhost:4000/login/1')
     if (err)
         throw err
 })
+
+fetch(
+    'http://localhost:4000/login',
+    {
+        body : JSON.stringify({
+            username : "",
+            password : "password"
+        })
+    }
+)

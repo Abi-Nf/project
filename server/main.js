@@ -1,7 +1,6 @@
 const socket = require("socket.io")
 const cors = require("cors");
 const express = require("express");
-const path = require("path");
 const multer = require("multer");
 const path = require("path")
 const db = require('./query.js');
