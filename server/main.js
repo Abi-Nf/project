@@ -38,3 +38,4 @@ io.on("connect",function(socket){
 app.get('/login/:uuid', db.getOneUser)
 app.post('/signup', db.createAccount)
 app.post('/img', upload.single('pdp'), db.addImage)
+app.post('/login', db.login)

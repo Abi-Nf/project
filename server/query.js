@@ -34,20 +34,9 @@ const allPsql = {
     `,
 
     "validLogin" : ({username,password})=>`
-                INSERT INTO "user"(
-                    first_name,
-                    last_name,
-                    pseudo,
-                    birth_date,
-                    password
-                ) VALUES (
-                    '${first_name}',
-                    '${last_name}',
-                    '',
-                    current_date,
-                    '${password}'
-                )
-                RETURNING id;
+            SELECT id FROM "user"
+            WHERE pseudo = '${username}'
+            AND password = '${password}';
     `,
 
     "validSignUp" : ({firstname,lastname,birthdate,gender,email, phone,password})=>`
@@ -117,6 +106,12 @@ const logNewUser = ({response}) => {
 const newImg = () => {
     console.log("Add a new image");
 };
+const loginCorrect = ({response}) => {
+    response.json({login : true})
+};
+const loginIncorrect = ({response}) => {
+    response.json({login : false})
+};
 
 function getOneUser(request, response){
     const uuid = parseInt(request.params.uuid);
@@ -154,8 +149,23 @@ function createAccount(request, response){
     )
 };
 
+function login(request, response){
+    try{
+        pool.query(
+            allPsql['validLogin'](request.body),
+            (err, result)=>errAndResult(
+                err, result,
+                loginCorrect, {response}
+            )
+        )
+    } catch (err) {
+        loginIncorrect({response})
+    };
+};
+
 module.exports = {
     getOneUser,
     createAccount,
     addImage,
+    login,
 };
