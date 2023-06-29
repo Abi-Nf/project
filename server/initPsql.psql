@@ -82,9 +82,10 @@ CREATE TABLE image(
   destination text not NULL,
   filename text not NULL,
   path text not NULL,
-  size text not NULL
+  size text not NULL,
+  id_user int REFERENCES "user"(id)
 );
 
-INSERT INTO "user" (first_name, last_name, user_name, birth_date, password)
+INSERT INTO "user" (first_name, last_name, pseudo, birth_date, password)
 VALUES ('axel', 'rakoto', 'koto' ,current_date, 'password');
 
