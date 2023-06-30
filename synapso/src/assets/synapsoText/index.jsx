@@ -1,6 +1,6 @@
-export default function SynapsoText({className}){
+export default function SynapsoText({ className }){
     return (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 25">
+    <svg className={ className } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 25">
 
         <g
             stroke="currentColor"
@@ -21,5 +21,5 @@ export default function SynapsoText({className}){
         m20 0 l 0 -20 13 0 0 20z" />
         </g>
     </svg>
-    )
+    );
 }
