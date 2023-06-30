@@ -23,10 +23,20 @@ input {
 	height: 2000px;
 	border-radius: 50%;
 	position: absolute;
-	background: linear-gradient(-45deg, #4481eb, #04befe);
+	background: #4481eb;
 	top: -10%;
 	right: 48%;
 	transform: translateY(-50%);
+	animation: colorAlternate 5s linear infinite;
+}
+
+@keyframes colorAlternate {
+	0%,100%{
+		background: #4481eb;
+	}
+	50%{
+		background: #005db4;
+	}
 }
 
 .forms-container {
@@ -140,6 +150,7 @@ form .sign-up-form {
 	color: #333;
 	font-size: 1.1rem;
 	border-radius: 50%;
+	cursor: pointer;
 	transition: .3s;
 }
 

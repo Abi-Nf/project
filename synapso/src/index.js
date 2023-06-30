@@ -1,8 +1,8 @@
-import reportWebVitals from './reportWebVitals'; // dev usage only
+import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom/client';
 import { StrictMode } from 'react';
 import Synapso from './Synapso';
-import {UserProvider} from "./components/UserProvider";
+import { UserProvider } from "./components/UserProvider";
 
 const root = ReactDOM
     .createRoot(

@@ -1,13 +1,10 @@
-import { faFacebookF, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF, faGoogle, faTwitter, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useCallback, useEffect, useState } from "react";
-import illuCache from "../../assets/illuCache";
-import { loginForm } from "../../utils/host";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import Image from "../../assets/illustrations/Friends-bro.svg"
 import "./index.css";
 
-export default function Login() {
+const Login = () => {
 	return (
 		<div className="container">
 			<div className="forms-container">
@@ -21,18 +18,37 @@ export default function Login() {
 							<input type="password" placeholder="Password" />
 						</div>
 						<input type="submit" value="Login" className="btn solid" />
-						<p className="social-text">Or Sign in with social plateform</p>
+						<p className="social-text">Or Sign in with social plateforms</p>
 						<div className="social-media">
 							<Link to="/" className="social-icon">
-								<FontAwesomeIcon icon={ faGoogle } />
+								<FontAwesomeIcon icon={faGoogle} />
 							</Link>
 							<Link to="/" className="social-icon">
-								<FontAwesomeIcon icon={ faFacebookF } />
+								<FontAwesomeIcon icon={faFacebookF} />
+							</Link>
+							<Link to="/" className="social-icon">
+								<FontAwesomeIcon icon={faTwitter} />
+							</Link>
+							<Link to="/" className="social-icon">
+								<FontAwesomeIcon icon={faGithub} />
 							</Link>
 						</div>
 					</form>
 				</div>
 			</div>
+
+			<div className="panels-container">
+				<div className="panel left-panel">
+					<div className="content">
+						<h3>New here?</h3>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt voluptas assumenda atque, esse placeat aut!</p>
+						<button className="btn transparent" id="sign-up-btn">Sign up</button>
+					</div>
+					<img src={ Image } alt="" srcset="" className="image"/>
+				</div>
+			</div>
 		</div>
 	);
 }
+
+export default Login;
