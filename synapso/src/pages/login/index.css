@@ -125,7 +125,7 @@ form.sign-up-form {
 	outline: none;
 	border-radius: 50px;
 	cursor: pointer;
-	background-color: #5995fd;
+	background: #005db4;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 600;
@@ -134,7 +134,7 @@ form.sign-up-form {
 }
 
 .btn:hover {
-	background-color: #00b4a5;;
+	background-color: #00b4a5;
 }
 
 .social-text {
@@ -164,8 +164,8 @@ form.sign-up-form {
 }
 
 .social-icon:hover {
-	color: #4481eb;
-	border-color: #4481eb;
+	color: #00b4a5;
+	border-color: #00b4a5;
 }
 
 .panels-container {

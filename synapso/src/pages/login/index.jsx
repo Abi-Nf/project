@@ -52,10 +52,13 @@ const Login = () => {
 					<form action="" className="sign-up-form">
 						<h2 className="title">Sign Up</h2>
 						<div className="input-field">
-							<input type="text" placeholder="Username" />
+							<input type="text" placeholder="First Name" />
 						</div>
 						<div className="input-field">
-							<input type="password" placeholder="Password" />
+							<input type="text" placeholder="Last Name" />
+						</div>
+						<div className="input-field">
+							<input type="mail" placeholder="Email" />
 						</div>
 						<input type="submit" value="Sign up" className="btn solid" />
 						<p className="social-text">Or Sign up with social plateforms</p>
