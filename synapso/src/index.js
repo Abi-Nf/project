@@ -4,18 +4,14 @@ import { StrictMode } from 'react';
 import Synapso from './Synapso';
 import { UserProvider } from "./components/UserProvider";
 
-const root = ReactDOM
-    .createRoot(
-        document
-            .getElementById("synapso")
-    );
+const root = ReactDOM.createRoot(document.getElementById("synapso"));
 
 root.render(
-    <StrictMode>
-        <UserProvider>
-            <Synapso />
-        </UserProvider>
-    </StrictMode>
+  <StrictMode>
+    <UserProvider>
+      <Synapso />
+    </UserProvider>
+  </StrictMode>
 );
 
-reportWebVitals(console.log); // dev performance App
+reportWebVitals(console.log);

@@ -6,20 +6,6 @@ import signUpImage from "../../assets/illustrations/Friends-bro.svg";
 import signInImage from "../../assets/illustrations/World-cuate.svg";
 import "./index.css";
 
-/*
-const sign_in_btn = document.querySelector("#sign-in-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
-
-sign_up_btn.addEventListener('click', () => {
-	container.classList.add("sign-up-mode");
-});
-
-sign_in_btn.addEventListener('click', () => {
-	container.classList.remove("sign-up-mode");
-});
-*/
-
 const Login = () => {
 	return (
 		<div className="container">
@@ -59,7 +45,7 @@ const Login = () => {
 						<div className="input-field">
 							<input type="password" placeholder="Password" />
 						</div>
-						<input type="submit" value="Login" className="btn solid" />
+						<input type="submit" value="Sign up" className="btn solid" />
 						<p className="social-text">Or Sign up with social plateforms</p>
 						<div className="social-media">
 							<Link to="/" className="social-icon">
