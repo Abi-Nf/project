@@ -13,7 +13,7 @@ input {
 	position: relative;
 	width: 100%;
 	min-height: 100vh;
-	background-color: #fff;
+	background-color: #e6e5e5;
 	overflow: hidden;
 }
 
@@ -36,11 +36,11 @@ input {
 
 	0%,
 	100% {
-		background: #4481eb;
+		background: #005db4;
 	}
 
-	50% {
-		background: #005db4;
+	75% {
+		background: #00b4a5;
 	}
 }
 
@@ -100,6 +100,7 @@ form.sign-up-form {
 	border-radius: 55px;
 	display: grid;
 	padding: 0 1rem;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .input-field input {
@@ -133,7 +134,7 @@ form.sign-up-form {
 }
 
 .btn:hover {
-	background-color: #4d84e2;
+	background-color: #00b4a5;;
 }
 
 .social-text {
