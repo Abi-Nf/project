@@ -2,7 +2,7 @@ import { faFacebookF, faGoogle, faTwitter, faGithub } from "@fortawesome/free-br
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
-import signUpImage from "../../assets/illustrations/Friends-bro.svg";
+import signUpImage from "../../assets/illustrations/Connected world-pana.svg";
 import signInImage from "../../assets/illustrations/World-cuate.svg";
 import "./index.css";
 
